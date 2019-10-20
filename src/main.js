@@ -10,12 +10,6 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
-// 视频播放器
-import VideoPlayer from 'vue-video-player';
-import 'video.js/dist/video-js.css';
-import 'vue-video-player/src/custom-theme.css';
-Vue.use(VideoPlayer);
-
 Vue.config.productionTip = false;
 Vue.config.devtools = process.env.NODE_ENV !== 'production';
 
