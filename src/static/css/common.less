@@ -1,0 +1,257 @@
+/* 优化中文网页重设与排版 https://github.com/sofish/typo.css */
+@import "./var.less";
+@import "./fn.less";
+@import "./font/iconfont.css";
+
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html {
+  color: @color-dark-grey;
+  background: white;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-rendering: optimizelegibility;
+  font: 14px/1.5 arial,tahoma,sans-serif;
+  outline: none;
+  color: #333;
+}
+html, body {
+  height: 100%;
+  background:#fff;
+}
+
+/* 如果你的项目仅支持 IE9+ | Chrome | Firefox 等，推荐在 <html> 中添加 .borderbox 这个 class */
+.borderbox *, .borderbox *:before, .borderbox *:after, * {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+  margin: 0;
+  padding: 0;
+}
+
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+  display: block;
+}
+
+/* HTML5 媒体文件跟 img 保持一致 */
+audio, canvas, video {
+  display: inline-block;
+}
+
+/* 要注意表单元素并不继承父级 font 的问题 */
+body, button, input, select, textarea {
+  font: 300 1em/1.8 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+/* 去掉各Table cell 的边距并让其边重合 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 去除默认边框 */
+fieldset, img {
+  border: 0;
+}
+
+/* 块/段落引用 */
+blockquote {
+  position: relative;
+  color: @color-grey;
+  font-weight: 400;
+  border-left: 1px solid @color-base;
+  padding-left: 1em;
+  margin: 1em 3em 1em 2em;
+}
+
+@media only screen and ( max-width: 640px ) {
+  blockquote {
+    margin: 1em 0;
+  }
+}
+
+/* Firefox 以外，元素没有下划线，需添加 */
+acronym, abbr {
+  border-bottom: 1px dotted;
+  font-variant: normal;
+}
+
+/* 添加鼠标问号，进一步确保应用的语义是正确的（要知道，交互他们也有洁癖，如果你不去掉，那得多花点口舌） */
+abbr {
+  cursor: help;
+}
+
+/* 一致的 del 样式 */
+del {
+  text-decoration: line-through;
+}
+
+address, caption, cite, code, dfn, em, th, var {
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* 去掉列表前的标识, li 会继承，大部分网站通常用列表来很多内容，所以应该当去 */
+ul, ol {
+  list-style: none;
+}
+
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+caption, th {
+  text-align: left;
+}
+
+q:before, q:after {
+  content: '';
+}
+
+/* 统一上标和下标 */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+}
+
+:root sub, :root sup {
+  vertical-align: baseline; /* for ie9 and other modern browsers */
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* 让链接在 hover 状态下显示下划线 */
+
+a {
+  color: @color-a-base;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* 自定义公共样式
+   ========================================================================== */
+.block{
+  display: block;
+}
+.w1{
+  width:100%;
+}
+.tc{
+  text-align: center;
+}
+.fr{
+  float: right;
+}
+.f12{
+  font-size: 12px;
+}
+.f14{
+  font-size: 14px;
+}
+.f20{
+  font-size: 20px;
+}
+.f24{
+  font-size: 24px;
+}
+.mr15{
+  margin-right: 15px;
+}
+.mod{
+  position: relative;
+  box-shadow: 0 2px 6px 0 #E6EBF0;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  background: #fff;
+}
+.modTitle{
+  font-size: 18px;
+  color: #333333;
+  padding: 15px 15px 10px 15px;
+  line-height: 20px;
+  text-align: left;
+  font-weight: bold;
+  .more{
+    float: right;
+    font-weight: normal;
+    font-size: 16px;
+    text-decoration: none;
+  }
+}
+
+.c-pdf{
+  color: #ff7a83;
+}
+.c-doc{
+  color: #4d97ff;
+}
+.c-file{
+  color: #ffba4c;
+}
+.blue{
+  color: #3389FF;
+}
+.content{
+  padding-bottom:80px!important;
+}
+.wrapper{
+  max-width: 1200px;
+  margin: 0 auto;
+  .avatar{
+    float: left;
+    display: block;
+    width:36px;
+    height: 36px;
+    margin: 12px;
+  }
+  .intro{
+    height: 60px;
+    line-height: 60px;
+    color: #fff;
+  }
+}
+.nav-title{
+  padding:20px 0;
+}
+.video-link{
+  font-size:20px!important;
+  font-weight:bold;
+}
+.footer{
+  background:#545c64;
+  color:#fff;
+  overflow: hidden;
+  text-align:center;
+  height: auto!important;
+  padding: 10px!important;
+  p{
+    line-height: 26px;
+    .contact{
+      padding-left:6px;
+      color:#fff;
+      &:hover i{
+        color:#409EFF;
+      }
+    }
+  }
+}
