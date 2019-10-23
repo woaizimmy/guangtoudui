@@ -4,7 +4,7 @@
       <el-row class="wrapper">
         <img class="avatar" :src="avatarUrl">
         <span class="intro">光头堆</span>
-        <topBar></topBar>
+        <topBar path="index"></topBar>
       </el-row>
     </el-row>
     <el-main class="content">
@@ -16,16 +16,36 @@
         </el-divider>
         <el-page-header class="nav-title" @back="turnTo('video')" title="更多" content="视频作品"></el-page-header>
 
-        <video class="w1" controls>
-          <source src="https://cn-videos.dji.net/video_trans/e65bd68e56614f38b412a417c2edbabf/720.mp4" type="video/mp4">
-          您的浏览器不支持 HTML5 video 标签。
-        </video>
-
-        <el-link href="https://www.skypixel.com/videos/50588ce6-89fd-43ce-be37-3badad42b644" target="_blank" class="video-link">大疆官方精选、知乎视频大赛获奖：「不可能」元气主</el-link>
+        <el-row :gutter="20">
+          <el-col :span="12">
+            <el-card class="box-card">
+              <div slot="header" class="clearfix">
+                <span>大疆官方精选、知乎视频大赛获奖：「不可能」元气主</span>
+                <el-button style="float: right; padding: 3px 0" type="text" @click="viewVideo('https://www.skypixel.com/videos/50588ce6-89fd-43ce-be37-3badad42b644')">去看视频</el-button>
+              </div>
+              <el-link href="https://www.skypixel.com/videos/50588ce6-89fd-43ce-be37-3badad42b644" target="_blank">
+                <img class="w1" :src="videoCover">
+              </el-link>
+            </el-card>
+            <!-- <el-link href="https://www.skypixel.com/videos/50588ce6-89fd-43ce-be37-3badad42b644" target="_blank" class="video-link">大疆官方精选、知乎视频大赛获奖：「不可能」元气主</el-link> -->
+          </el-col>
+          <el-col :span="12">
+            <el-card class="box-card">
+              <div slot="header" class="clearfix">
+                <span>大疆官方精选、知乎视频大赛获奖：「不可能」元气主</span>
+                <el-button style="float: right; padding: 3px 0" type="text" @click="viewVideo('https://www.skypixel.com/videos/50588ce6-89fd-43ce-be37-3badad42b644')">去看视频</el-button>
+              </div>
+              <el-link href="https://www.skypixel.com/videos/50588ce6-89fd-43ce-be37-3badad42b644" target="_blank">
+                <img class="w1" :src="videoCover">
+              </el-link>
+            </el-card>
+          </el-col>
+        </el-row>
+        <el-divider>
+          <el-link href="#/video">更多视频作品</el-link>
+        </el-divider>
+        
   
-        <!-- <el-divider>
-          <el-link href="https://www.skypixel.com/videos/50588ce6-89fd-43ce-be37-3badad42b644" target="_blank">大疆官方精选、知乎视频大赛获奖：「不可能」元气主</el-link>
-        </el-divider> -->
       </el-row>
     </el-main>
     <el-footer class=footer>
@@ -46,6 +66,7 @@ import {  } from 'comp/util/api';
 import topBar from 'comp/topBar.vue';
 import swiperPhotos from 'comp/swiperPhotos.vue';
 const avatar = require('static/img/avatar.jpg');
+const videoCover = require('static/img/video.png');
 
 export default {
   components: {
@@ -54,6 +75,7 @@ export default {
   data() {
     return {
       avatarUrl:avatar,
+      videoCover:videoCover,
       videoUrl:'https://cn-videos.dji.net/video_trans/e65bd68e56614f38b412a417c2edbabf/720.mp4',
     };
   },
@@ -65,6 +87,9 @@ export default {
   methods: {
     turnTo(path){
       window.location.href = '#/' + path;
+    },
+    viewVideo(url){
+      window.open(url);
     }
   },
 };

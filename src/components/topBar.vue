@@ -1,6 +1,6 @@
 <template>
   <el-menu
-  :default-active="activeIndex"
+  :default-active="path"
   class="fr"
   mode="horizontal"
   @select="handleSelect"
@@ -17,11 +17,11 @@
 <script>
 
 export default {
+  props:['path'],
   components:{
   },
   data() {
     return {
-      activeIndex:'index',
     };
   },
   mounted() {
@@ -30,6 +30,7 @@ export default {
   methods: {
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
+      window.location.href = '#/' + key;
     }
   },
 };

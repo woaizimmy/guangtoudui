@@ -1,7 +1,7 @@
 <template>
   <el-carousel :interval="4000" type="card" height="360px">
     <el-carousel-item v-for="(item,index) in list" :key="index">
-      <img class="pics" :src="item.img">
+      <img class="pics" :src="item.img" @click="viewPhoto(item.img)">
     </el-carousel-item>
   </el-carousel>
 </template>
@@ -22,7 +22,10 @@ export default {
     });
   },
   methods: {
-    
+    viewPhoto(url){
+      console.log('photo url:',url);
+      // window.open(url);
+    },
   },
 };
 
