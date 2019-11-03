@@ -17,7 +17,7 @@
         <el-page-header class="nav-title" @back="turnTo('video')" title="更多" content="视频作品"></el-page-header>
 
         <el-row :gutter="20">
-          <el-col :span="12">
+          <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
             <el-card class="box-card">
               <div slot="header" class="clearfix">
                 <span>大疆官方精选、知乎视频大赛获奖：「不可能」元气主</span>
@@ -29,7 +29,7 @@
             </el-card>
             <!-- <el-link href="https://www.skypixel.com/videos/50588ce6-89fd-43ce-be37-3badad42b644" target="_blank" class="video-link">大疆官方精选、知乎视频大赛获奖：「不可能」元气主</el-link> -->
           </el-col>
-          <el-col :span="12">
+          <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
             <el-card class="box-card">
               <div slot="header" class="clearfix">
                 <span>大疆官方精选、知乎视频大赛获奖：「不可能」元气主</span>
@@ -99,7 +99,9 @@ export default {
   .menu{
     width: 100%;
     background: #545c64;
-    
+  }
+  .box-card{
+    margin-bottom: 20px;
   }
 </style>
 
